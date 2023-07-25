@@ -1,7 +1,6 @@
 package com.honey.hottrack.service;
 
-import com.honey.hottrack.config.KeyProperties;
-import com.honey.hottrack.config.UrlProperties;
+import com.honey.hottrack.config.YoutubeProperties;
 import com.honey.hottrack.dto.YoutubeResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,16 +14,16 @@ import java.net.URI;
 public class YoutubeService {
 
     private final RestTemplate restTemplate;
-    private final UrlProperties urlProperties;
-    private final KeyProperties key;
+    private final YoutubeProperties youtubeProperties;
 
-    public YoutubeResponseDto getContents(int pageSize) {
-        URI uri = UriComponentsBuilder.fromHttpUrl(urlProperties.getYoutube())
+    public YoutubeResponseDto getContents(int pageSize, String pageToken) {
+        URI uri = UriComponentsBuilder.fromHttpUrl(youtubeProperties.getUrl())
                 .queryParam("part", "snippet")
                 .queryParam("chart", "mostPopular")
                 .queryParam("maxResults", pageSize)
+                .queryParam("pageToken", pageToken)
                 .queryParam("regionCode", "kr")
-                .queryParam("key", key.getYoutube())
+                .queryParam("key", youtubeProperties.getKey())
                 .build()
                 .toUri();
 

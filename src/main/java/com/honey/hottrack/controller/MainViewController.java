@@ -1,5 +1,6 @@
 package com.honey.hottrack.controller;
 
+import com.honey.hottrack.dto.YoutubeResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +17,14 @@ public class MainViewController {
 
     @GetMapping
     public String home(
-            @RequestParam(required = false, defaultValue = "10")int pageSize,
+            @RequestParam(required = false, defaultValue = "10") int pageSize,
+            @RequestParam(required = false) String pageToken,
             Model model
     ) {
-        model.addAttribute("contents", youtubeApiController.getContents(pageSize).getItems());
+        YoutubeResponseDto contents = youtubeApiController.getContents(pageSize, pageToken);
+        model.addAttribute("contents", contents.getItems());
+        model.addAttribute("pageSize", contents.getPageInfo().getResultsPerPage());
+        model.addAttribute("nextPageToken", contents.getNextPageToken());
         return "home";
     }
 }

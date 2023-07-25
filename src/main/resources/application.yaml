@@ -5,7 +5,6 @@ spring:
     password: ${LOCAL_DB_PASSWORD}
 
 sns:
-  url:
-    youtube: https://www.googleapis.com/youtube/v3/videos
-  key:
-    youtube: ${YOUTUBE_API_KEY}
+  youtube:
+    url: https://www.googleapis.com/youtube/v3/videos
+    key: ${YOUTUBE_API_KEY}

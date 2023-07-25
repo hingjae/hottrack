@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <ul>
+    <ul id="videoList">
         <!-- 모델에 추가한 동영상 리스트를 순회하며 출력합니다. -->
         <li th:each="content : ${contents}">
             <!-- 카드로 감싸기 -->
@@ -25,8 +25,12 @@
             </div>
         </li>
     </ul>
+    <button id="loadMoreVideo" class="load-more-button">더보기</button>
 </div>
-<script src="/js/home.js"></script>
+<input type="hidden" id="pageSize" th:value="${pageSize}">
+<input type="hidden" id="nextPageToken" th:value="${nextPageToken}">
 
+<script src="/js/home.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

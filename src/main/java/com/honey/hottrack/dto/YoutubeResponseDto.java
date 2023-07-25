@@ -13,16 +13,12 @@ public class YoutubeResponseDto {
     private String nextPageToken;
     private PageInfoDTO pageInfo;
 
-    // Getter and Setter methods for all fields
-
     @Getter @Setter
     public static class YoutubeVideoDTO {
         private String kind;
         private String etag;
         private String id;
         private SnippetDTO snippet;
-
-        // Getter and Setter methods for all fields
         @Getter @Setter
         public static class SnippetDTO {
             private String publishedAt;
@@ -36,8 +32,6 @@ public class YoutubeResponseDto {
             private String liveBroadcastContent;
             private String defaultLanguage;
             private LocalizedDTO localized;
-
-            // Getter and Setter methods for all fields
             @Getter @Setter
             public static class ThumbnailsDTO {
                 private ThumbnailDTO defaultThumbnail;
@@ -45,23 +39,17 @@ public class YoutubeResponseDto {
                 private ThumbnailDTO high;
                 private ThumbnailDTO standard;
                 private ThumbnailDTO maxres;
-
-                // Getter and Setter methods for all fields
                 @Getter @Setter
                 public static class ThumbnailDTO {
                     private String url;
                     private int width;
                     private int height;
-
-                    // Getter and Setter methods for all fields
                 }
             }
             @Getter @Setter
             public static class LocalizedDTO {
                 private String title;
                 private String description;
-
-                // Getter and Setter methods for all fields
             }
         }
     }
@@ -69,7 +57,5 @@ public class YoutubeResponseDto {
     public static class PageInfoDTO {
         private int totalResults;
         private int resultsPerPage;
-
-        // Getter and Setter methods for all fields
     }
 }

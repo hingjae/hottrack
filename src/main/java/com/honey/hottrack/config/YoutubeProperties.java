@@ -6,7 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "sns.url")
-public class UrlProperties {
-    @Getter @Setter private String youtube;
+@ConfigurationProperties(prefix = "sns.youtube")
+public class YoutubeProperties {
+    @Getter @Setter private String url;
+    @Getter @Setter private String key;
 }
